@@ -1,0 +1,44 @@
+1.1	TRIED TO MAKE RAND() A FUNCTION
+1.2	THE FUNCTION WORKS, BUT THE VALUES CALLED ARE THE SAME. SUSPECTED TO BE BECAUSE OF DATA RACING. THE
+	SRAND(TIME(NULL)) IS NEEDED TO SEED THE RAND() FUNCTION, HOWEVER IT DOES SO AT A RATE THAT IS NOT
+	FAST ENOUGH TO CREATE UNIQUE VALUES WHEN FUNCTIONS ARE CALLED DIRECTLY AFTER ONE ANOTHER, SUCH AS
+	SEEN IN LINES 68 TO 70.
+
+		int randNums()
+		{
+			srand (time(NULL));
+			int result;		//Local Variables
+			result = rand() % 6 + 2;
+			return result;
+		}
+
+1.3 ATTEMPTED TO USE A DIFFERENT METHOD TO SEED THE FUNCTION; HOWEVER SAME RESULT. NOT FAST ENOUGH.
+1.4 Reverted back to original randomizing
+		
+		srand(time(NULL));
+		rand()%6 +2;
+		
+
+2.1	Attempted to replace dowhile loop with a switch.
+2.2 Ran into problems with non constant variables
+
+3.1 Attempted to replace the title screeen with a function
+3.2 first iteration did not work. was not changing the state of the game correctly, keeps thinking
+	that i put an invalid character, even though it is valid.
+	
+	int title()
+	{
+		int iInput;
+		cout << "Player's Chips: " << iChips << endl << endl;
+		cout << "1) Play Slots" << endl;
+		cout << "2) Quit Slot Machine" << endl;		
+		cout << "3) Credits" << endl << endl;
+		cin >> iInput;
+		return(int(iInput));
+	}
+
+3.3	Corrected the problem. Apparently i was just being retarded, wasnt setting the returned value
+	of title() as iInput, which was needed
+
+4.1 The problem still runs with the everything. If any input other than a number, the program goes
+	into an infinite loop.
