@@ -4,7 +4,7 @@ A number of projects that I've done for my Bachelor of Software Engineering cour
 
 ## Complete Projects
 ---
-# Matrix Project
+# Matrix Project #
 Was a very simple matrix operation console application. Precursor to the Calculator project under `Broken Projects`.
 ---
 ### Plotter
